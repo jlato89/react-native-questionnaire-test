@@ -8,7 +8,7 @@ export class Questionnaire extends Component {
     super(props)
 
     this.state = {
-      step: 2,
+      step: 1,
       firstName: '',
       lastName: '',
       dob: '',
