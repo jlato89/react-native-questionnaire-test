@@ -1,7 +1,8 @@
 import React from 'react'
 import { StyleSheet, View, Text, TextInput, Button } from 'react-native'
 
-const UserDetails = ({ values, onChangeHandler, nextStep }) => {
+const UserDetails = ({ values, fieldChangeHandler, nextStep }) => {
+
   return (
     <View style={styles.container}>
       <Text style={styles.questionTitle}>Please use your full legal name</Text>
@@ -9,14 +10,21 @@ const UserDetails = ({ values, onChangeHandler, nextStep }) => {
         <TextInput
           style={styles.inputBox}
           placeholder='FirstName'
+          onChangeText={fieldChangeHandler('firstName')}
+          value={values.firstName}
         />
         <TextInput
           style={styles.inputBox}
           placeholder='LastName'
+          onChangeText={fieldChangeHandler('lastName')}
+          value={values.lastName}
         />
         <TextInput
           style={styles.inputBox}
           placeholder='Date of Birth'
+          onChangeText={fieldChangeHandler('dob')}
+          value={values.dob}
+
         />
       </View>
       <Button style={styles.submitBtn} title='CHECK IN' onPress={nextStep} />
@@ -41,6 +49,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   submitBtn: {
+    width: '50%'
   }
 })
 

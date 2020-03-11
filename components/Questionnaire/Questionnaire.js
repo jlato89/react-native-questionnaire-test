@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 import UserDetails from './components/UserDetails';
 
 export class Questionnaire extends Component {
-  state = {
-    step: 1,
-    firstName: '',
-    lastName: '',
-    dob: '',
-    relapses: '', // boolean
-    substancesUsed: [], // array
-    rememberUsing: '',  // boolean
-    datesUsedWeed: [], // array
-    datesUsedCocaine: [], // array
-    datesUsedTobacco: [], // array
-    datesUsedAlcohol: [], // array
-    profileImg: '',
-    weedUsedWith: '',
-    cocaineUsedWith: '',
-    tobaccoUsedWith: '',
-    alcoholUsedWith: '',
-    knownDaysSober: '',
-    meetingsAttended: '',
-    recoveryFeeling: ''
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      step: 1,
+      firstName: '',
+      lastName: '',
+      dob: '',
+      relapses: '', // boolean
+      substancesUsed: [], // array
+      rememberUsing: '',  // boolean
+      datesUsedWeed: [], // array
+      datesUsedCocaine: [], // array
+      datesUsedTobacco: [], // array
+      datesUsedAlcohol: [], // array
+      profileImg: '',
+      weedUsedWith: '',
+      cocaineUsedWith: '',
+      tobaccoUsedWith: '',
+      alcoholUsedWith: '',
+      knownDaysSober: '',
+      meetingsAttended: '',
+      recoveryFeeling: ''
+    }
   }
 
   // Next Question
@@ -38,8 +42,8 @@ export class Questionnaire extends Component {
   }
 
   // Handle Field Change
-  handleChange = input => e => {
-    this.setState({ [input]: e.target.value });
+  handleChange = name => (value) => {
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -55,10 +59,9 @@ export class Questionnaire extends Component {
           <Text style={styles.headerText}>It has been XX days since your last visit</Text>
         </View>
         <View style={styles.box}>
-          {/* <Text>This will be the Question box</Text> */}
           <UserDetails
             values={values}
-            onChangeHander={this.handleChange}
+            fieldChangeHandler={this.handleChange}
             nextStep={this.nextQuestion}
           />
         </View>
