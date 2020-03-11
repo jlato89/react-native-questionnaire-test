@@ -1,55 +1,75 @@
-import React from 'react'
-import { StyleSheet, View, Text, TextInput, Button } from 'react-native'
+import React from 'react';
+import { StyleSheet, View, Text, TextInput } from 'react-native';
+import Button from 'react-native-button';
 
 const UserDetails = ({ values, fieldChangeHandler, nextStep }) => {
 
   return (
     <View style={styles.container}>
       <Text style={styles.questionTitle}>Please use your full legal name</Text>
-      <View>
-        <TextInput
-          style={styles.inputBox}
-          placeholder='FirstName'
-          onChangeText={fieldChangeHandler('firstName')}
-          value={values.firstName}
-        />
-        <TextInput
-          style={styles.inputBox}
-          placeholder='LastName'
-          onChangeText={fieldChangeHandler('lastName')}
-          value={values.lastName}
-        />
-        <TextInput
-          style={styles.inputBox}
-          placeholder='Date of Birth'
-          onChangeText={fieldChangeHandler('dob')}
-          value={values.dob}
-
-        />
+      <TextInput
+        style={styles.inputBox}
+        placeholder='FirstName'
+        onChangeText={fieldChangeHandler('firstName')}
+        value={values.firstName}
+      />
+      <TextInput
+        style={styles.inputBox}
+        placeholder='LastName'
+        onChangeText={fieldChangeHandler('lastName')}
+        value={values.lastName}
+      />
+      <TextInput
+        style={styles.inputBox}
+        placeholder='Date of Birth'
+        onChangeText={fieldChangeHandler('dob')}
+        value={values.dob}
+      />
+      <View style={styles.btnWrapper}>
+        <Button style={styles.btnText} onPress={nextStep}>CHECK IN</Button>
       </View>
-      <Button style={styles.submitBtn} title='CHECK IN' onPress={nextStep} />
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    // padding: 40,
-  },
-  questionTitle: {
-    fontSize: 40,
-    paddingBottom: '3%'
-  },
-  inputBox: {
-    fontSize: 40,
+    alignItems: 'center',
+    alignSelf: 'center',
+    // width: '98%',
     borderColor: 'black',
     borderStyle: 'solid',
     borderWidth: 1,
+    paddingVertical: '2%',
+    paddingHorizontal: '5%'
   },
-  submitBtn: {
-    width: '50%'
+  questionTitle: {
+    fontSize: 25,
+    textAlign: 'center',
+    color: 'grey',
+    paddingBottom: '3%'
+  },
+  inputBox: {
+    fontSize: 30,
+    textAlign: 'center',
+    borderColor: 'black',
+    borderStyle: 'solid',
+    width: 500,
+    borderWidth: 1,
+    margin: 2
+  },
+  btnWrapper: {
+    alignSelf: 'center',
+    borderColor: 'black',
+    borderStyle: 'solid',
+    borderWidth: 1,
+    paddingHorizontal: 30,
+    paddingVertical: 10,
+    marginTop: 70
+  },
+  btnText: {
+    fontSize: 30,
+    color: 'grey'
   }
 })
 
