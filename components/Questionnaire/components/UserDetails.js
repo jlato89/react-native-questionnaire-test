@@ -7,24 +7,26 @@ const UserDetails = ({ values, fieldChangeHandler, nextStep }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.questionTitle}>Please use your full legal name</Text>
-      <TextInput
-        style={styles.inputBox}
-        placeholder='FirstName'
-        onChangeText={fieldChangeHandler('firstName')}
-        value={values.firstName}
-      />
-      <TextInput
-        style={styles.inputBox}
-        placeholder='LastName'
-        onChangeText={fieldChangeHandler('lastName')}
-        value={values.lastName}
-      />
-      <TextInput
-        style={styles.inputBox}
-        placeholder='Date of Birth'
-        onChangeText={fieldChangeHandler('dob')}
-        value={values.dob}
-      />
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.inputField}
+          placeholder='FirstName'
+          onChangeText={fieldChangeHandler('firstName')}
+          value={values.firstName}
+        />
+        <TextInput
+          style={styles.inputField}
+          placeholder='LastName'
+          onChangeText={fieldChangeHandler('lastName')}
+          value={values.lastName}
+        />
+        <TextInput
+          style={styles.inputField}
+          placeholder='Date of Birth'
+          onChangeText={fieldChangeHandler('dob')}
+          value={values.dob}
+        />
+      </View>
       <View style={styles.btnWrapper}>
         <Button style={styles.btnText} onPress={nextStep}>CHECK IN</Button>
       </View>
@@ -34,42 +36,40 @@ const UserDetails = ({ values, fieldChangeHandler, nextStep }) => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     alignItems: 'center',
     alignSelf: 'center',
-    // width: '98%',
-    borderColor: 'black',
-    borderStyle: 'solid',
     borderWidth: 1,
+    paddingHorizontal: '4%',
     paddingVertical: '2%',
-    paddingHorizontal: '5%'
   },
   questionTitle: {
+    flex: 1,
     fontSize: 25,
     textAlign: 'center',
     color: 'grey',
-    paddingBottom: '3%'
+    paddingBottom: '1%',
   },
-  inputBox: {
-    fontSize: 30,
-    textAlign: 'center',
-    borderColor: 'black',
-    borderStyle: 'solid',
+  inputContainer: {
+    flex: 4,
     width: 500,
+  },
+  inputField: {
+    fontSize: 25,
+    textAlign: 'center',
     borderWidth: 1,
     margin: 2
   },
   btnWrapper: {
-    alignSelf: 'center',
-    borderColor: 'black',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    paddingHorizontal: 30,
-    paddingVertical: 10,
-    marginTop: 70
+    flex: 5,
+    justifyContent: 'center',
   },
   btnText: {
-    fontSize: 30,
-    color: 'grey'
+    fontSize: 25,
+    color: 'grey',
+    borderWidth: 1,
+    paddingHorizontal: 35,
+    paddingVertical: 15,
   }
 })
 

@@ -85,7 +85,7 @@ export class Questionnaire extends Component {
           <Text style={styles.headerText}>2:30pm</Text>
           <Text style={styles.headerText}>It has been XX days since your last visit</Text>
         </View>
-        <View style={styles.questionBox}>
+        <View style={styles.mainContent}>
           {CurrentQuestions}
         </View>
       </View>
@@ -95,17 +95,23 @@ export class Questionnaire extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 40,
+    flex: 1,
+    padding: '3%',
+    paddingBottom: '10%', //? Temp solution for tablet nav bar
+
   },
   header: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '80%',
-    marginBottom: '5%'
   },
   headerText: {
     fontSize: 25,
     color: 'grey'
+  },
+  mainContent: {
+    flex: 4,
   }
 })
 
