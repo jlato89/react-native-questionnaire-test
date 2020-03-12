@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
   mainContent: {
-    flex: 4,
+    flex: 6,
   }
 });
 
