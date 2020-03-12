@@ -8,15 +8,15 @@ const NavBtns = ({ prevStep, nextStep }) => {
       <Button
         title='Previous'
         type='outline'
-        buttonStyle={{ borderColor: 'black', borderWidth: 1, width: 180, height: 60 }}
-        titleStyle={{ color: 'black', fontSize: 20 }}
+        buttonStyle={styles.btnStyle}
+        titleStyle={styles.btnTitleStyle}
         onPress={prevStep}
       />
       <Button
         title='Next'
         type='outline'
-        buttonStyle={{ borderColor: 'black', borderWidth: 1, width: 180, height: 60 }}
-        titleStyle={{ color: 'black', fontSize: 20 }}
+        buttonStyle={styles.btnStyle}
+        titleStyle={styles.btnTitleStyle}
         onPress={nextStep}
       />
     </View>
@@ -30,6 +30,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     width: 500
+  },
+  btnStyle: {
+    borderColor: 'black',
+    borderWidth: 1,
+    width: 180,
+    height: 60
+  },
+  btnTitleStyle: {
+    color: 'black',
+    fontSize: 20
   }
 });
 
