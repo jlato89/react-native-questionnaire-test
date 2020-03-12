@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
-import UserDetails from './components/UserDetails';
-import QuestionList from './components/QuestionList';
+import Layout from './components/Layout/MainLayout';
+import UserDetails from './components/Questions/UserDetails';
+import Relapsed from './components/Questions/Relapsed';
+import UsedSubstances from './components/Questions/UsedSubstances';
 
 export class Questionnaire extends Component {
   constructor(props) {
@@ -53,66 +54,42 @@ export class Questionnaire extends Component {
     const { firstName, lastName, dob, relapses, substancesUsed, rememberUsing, datesUsedWeed, datesUsedCocaine, datesUsedTobacco, datesUsedAlcohol, profileImg, weedUsedWith, cocaineUsedWith, tobaccoUsedWith, alcoholUsedWith, knownDaysSober, meetingsAttended, recoveryFeeling } = this.state;
     const values = { firstName, lastName, dob, relapses, substancesUsed, rememberUsing, datesUsedWeed, datesUsedCocaine, datesUsedTobacco, datesUsedAlcohol, profileImg, weedUsedWith, cocaineUsedWith, tobaccoUsedWith, alcoholUsedWith, knownDaysSober, meetingsAttended, recoveryFeeling }
 
-    let CurrentQuestions = '';
+    let CurrentQuestion = '';
     switch (step) {
       case 1:
-        CurrentQuestions = (
+        CurrentQuestion = (
           <UserDetails
             values={values}
             fieldChangeHandler={this.handleChange}
-            nextStep={this.nextQuestion}
-          />
+            nextStep={this.nextQuestion} />
         );
         break;
       case 2:
-        CurrentQuestions = (
-          <QuestionList
+        CurrentQuestion = (
+          <Relapsed
             values={values}
             fieldChangeHandler={this.handleChange}
             nextStep={this.nextQuestion}
-            prevStep={this.prevQuestion}
-          />
+            prevStep={this.prevQuestion} />
         );
         break;
-      default:
+      case 3:
+        CurrentQuestion = (
+          <UsedSubstances
+            values={values}
+            fieldChangeHandler={this.handleChange}
+            nextStep={this.nextQuestion}
+            prevStep={this.prevQuestion} />
+        );
         break;
     }
 
     return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>Tuesday, March 2</Text>
-          <Text style={styles.headerText}>2:30pm</Text>
-          <Text style={styles.headerText}>It has been XX days since your last visit</Text>
-        </View>
-        <View style={styles.mainContent}>
-          {CurrentQuestions}
-        </View>
-      </View>
+      <Layout lastVisit={7}>
+        {CurrentQuestion}
+      </Layout>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: '3%',
-    paddingBottom: '10%', //? Temp solution for tablet nav bar
-
-  },
-  header: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    width: '80%',
-  },
-  headerText: {
-    fontSize: 25,
-    color: 'grey'
-  },
-  mainContent: {
-    flex: 4,
-  }
-})
 
 export default Questionnaire
