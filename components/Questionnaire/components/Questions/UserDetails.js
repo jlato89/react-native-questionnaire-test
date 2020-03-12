@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     alignSelf: 'center',
-    borderWidth: 1,
+    borderWidth: 2,
     paddingHorizontal: '4%',
     paddingVertical: '2%',
   },
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   inputField: {
     fontSize: 25,
     textAlign: 'center',
-    borderWidth: 1,
+    borderWidth: 2,
     margin: 2
   },
   btnContainer: {
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
   btnStyle: {
     borderColor: 'black',
-    borderWidth: 1,
+    borderWidth: 2,
     width: 180,
     height: 60
   }

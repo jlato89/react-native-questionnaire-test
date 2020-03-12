@@ -29,11 +29,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: 500
+    width: 500,
+    marginBottom: -30
   },
   btnStyle: {
     borderColor: 'black',
-    borderWidth: 1,
+    borderWidth: 2,
     width: 180,
     height: 60
   },
