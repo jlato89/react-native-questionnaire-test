@@ -3,6 +3,7 @@ import Layout from './components/Layout/MainLayout';
 import UserDetails from './components/Questions/UserDetails';
 import Relapsed from './components/Questions/Relapsed';
 import UsedSubstances from './components/Questions/UsedSubstances';
+import RememberUsed from './components/Questions/RememberUsed';
 
 export class Questionnaire extends Component {
   constructor(props) {
@@ -76,6 +77,15 @@ export class Questionnaire extends Component {
       case 3:
         CurrentQuestion = (
           <UsedSubstances
+            values={values}
+            fieldChangeHandler={this.handleChange}
+            nextStep={this.nextQuestion}
+            prevStep={this.prevQuestion} />
+        );
+        break;
+      case 4:
+        CurrentQuestion = (
+          <RememberUsed
             values={values}
             fieldChangeHandler={this.handleChange}
             nextStep={this.nextQuestion}
