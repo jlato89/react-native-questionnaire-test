@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput } from 'react-native';
-import Button from 'react-native-button';
+import { Button } from 'react-native-elements';
 
 const UserDetails = ({ values, fieldChangeHandler, nextStep }) => {
 
@@ -27,9 +27,14 @@ const UserDetails = ({ values, fieldChangeHandler, nextStep }) => {
           value={values.dob}
         />
       </View>
-      <View style={styles.btnWrapper}>
-        <Button style={styles.btnText} onPress={nextStep}>CHECK IN</Button>
-      </View>
+      <Button
+        title='CHECK IN'
+        type='outline'
+        titleStyle={{ color: 'black', fontSize: 20 }}
+        containerStyle={styles.btnContainer}
+        buttonStyle={styles.btnStyle}
+        onPress={nextStep}
+      />
     </View>
   )
 }
@@ -47,7 +52,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 25,
     textAlign: 'center',
-    color: 'grey',
+    color: 'black',
     paddingBottom: '1%',
   },
   inputContainer: {
@@ -60,17 +65,16 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     margin: 2
   },
-  btnWrapper: {
+  btnContainer: {
     flex: 5,
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
-  btnText: {
-    fontSize: 25,
-    color: 'grey',
+  btnStyle: {
+    borderColor: 'black',
     borderWidth: 1,
-    paddingHorizontal: 35,
-    paddingVertical: 15,
+    width: 180,
+    height: 60
   }
-})
+});
 
 export default UserDetails

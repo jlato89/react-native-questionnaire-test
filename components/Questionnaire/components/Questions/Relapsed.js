@@ -1,0 +1,67 @@
+import React from 'react';
+import { StyleSheet, View, Text } from 'react-native';
+import { Button } from 'react-native-elements';
+import NavBtns from '../NavBtns';
+
+const Relapsed = ({ values, fieldChangeHandler, nextStep, prevStep }) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.questionTitle}>Since your last visit, have you had any relapse?</Text>
+      <View style={styles.choicesContainer}>
+        <Button
+          title='YES'
+          type='outline'
+          buttonStyle={styles.btnStyle}
+          titleStyle={styles.btnTitleStyle}
+          onPress={fieldChangeHandler}
+          value='yes'
+        />
+        <Button
+          title='NO'
+          type='outline'
+          buttonStyle={styles.btnStyle}
+          titleStyle={styles.btnTitleStyle}
+          onPress={fieldChangeHandler}
+          value='no'
+        />
+      </View>
+      <NavBtns nextStep={nextStep} prevStep={prevStep} />
+    </View>
+  )
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    alignSelf: 'center',
+    borderWidth: 1,
+    width: '95%',
+    paddingHorizontal: '4%',
+    paddingVertical: '2%',
+  },
+  questionTitle: {
+    flex: 1,
+    fontSize: 25,
+    textAlign: 'center',
+    color: 'black',
+    paddingBottom: '1%',
+  },
+  choicesContainer: {
+    flex: 4,
+    flexDirection: 'column',
+    width: 500,
+  },
+  btnStyle: {
+    borderColor: 'black',
+    borderWidth: 1,
+    height: 60,
+    marginVertical: 15
+  },
+  btnTitleStyle: {
+    color: 'black',
+    fontSize: 20
+  }
+});
+
+export default Relapsed
