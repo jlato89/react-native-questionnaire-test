@@ -14,7 +14,7 @@ export class Questionnaire extends Component {
       firstName: '',
       lastName: '',
       dob: '',
-      relapses: '', // boolean
+      relapsed: '', // boolean
       substancesUsed: [], // array
       rememberUsing: '',  // boolean
       datesUsedWeed: [], // array
@@ -46,14 +46,16 @@ export class Questionnaire extends Component {
 
   // Handle Field Change
   handleChange = name => (value) => {
-    this.setState({ [name]: value });
+    console.log('name', name);
+    console.log('value', value);
+    // this.setState({ [name]: value });
   }
 
 
   render() {
     const { step } = this.state;
-    const { firstName, lastName, dob, relapses, substancesUsed, rememberUsing, datesUsedWeed, datesUsedCocaine, datesUsedTobacco, datesUsedAlcohol, profileImg, weedUsedWith, cocaineUsedWith, tobaccoUsedWith, alcoholUsedWith, knownDaysSober, meetingsAttended, recoveryFeeling } = this.state;
-    const values = { firstName, lastName, dob, relapses, substancesUsed, rememberUsing, datesUsedWeed, datesUsedCocaine, datesUsedTobacco, datesUsedAlcohol, profileImg, weedUsedWith, cocaineUsedWith, tobaccoUsedWith, alcoholUsedWith, knownDaysSober, meetingsAttended, recoveryFeeling }
+    const { firstName, lastName, dob, relapsed, substancesUsed, rememberUsing, datesUsedWeed, datesUsedCocaine, datesUsedTobacco, datesUsedAlcohol, profileImg, weedUsedWith, cocaineUsedWith, tobaccoUsedWith, alcoholUsedWith, knownDaysSober, meetingsAttended, recoveryFeeling } = this.state;
+    const values = { firstName, lastName, dob, relapsed, substancesUsed, rememberUsing, datesUsedWeed, datesUsedCocaine, datesUsedTobacco, datesUsedAlcohol, profileImg, weedUsedWith, cocaineUsedWith, tobaccoUsedWith, alcoholUsedWith, knownDaysSober, meetingsAttended, recoveryFeeling }
 
     let CurrentQuestion = '';
     switch (step) {
