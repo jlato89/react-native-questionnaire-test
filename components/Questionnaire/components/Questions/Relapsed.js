@@ -14,7 +14,6 @@ const Relapsed = ({ values, fieldChangeHandler, nextStep, prevStep }) => {
           buttonStyle={styles.btnStyle}
           titleStyle={styles.btnTitleStyle}
           onPress={fieldChangeHandler}
-          value='yes'
         />
         <Button
           title='NO'
@@ -22,7 +21,6 @@ const Relapsed = ({ values, fieldChangeHandler, nextStep, prevStep }) => {
           buttonStyle={styles.btnStyle}
           titleStyle={styles.btnTitleStyle}
           onPress={fieldChangeHandler}
-          value='no'
         />
       </View>
       <NavBtns nextStep={nextStep} prevStep={prevStep} />
