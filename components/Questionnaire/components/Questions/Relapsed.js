@@ -3,7 +3,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
 import NavBtns from '../NavBtns';
 
-const Relapsed = ({ values, fieldChangeHandler, nextStep, prevStep }) => {
+const Relapsed = ({ values, handleButtonOption, nextStep, prevStep }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.questionTitle}>Since your last visit, have you had any relapse?</Text>
@@ -14,6 +14,7 @@ const Relapsed = ({ values, fieldChangeHandler, nextStep, prevStep }) => {
           buttonStyle={styles.btnStyle}
           titleStyle={styles.btnTitleStyle}
           onPress={fieldChangeHandler}
+          ref={answer => handleButtonOption(answer)}
         />
         <Button
           title='NO'
@@ -21,6 +22,7 @@ const Relapsed = ({ values, fieldChangeHandler, nextStep, prevStep }) => {
           buttonStyle={styles.btnStyle}
           titleStyle={styles.btnTitleStyle}
           onPress={fieldChangeHandler}
+          ref={answer => handleButtonOption(answer)}
         />
       </View>
       <NavBtns nextStep={nextStep} prevStep={prevStep} />
