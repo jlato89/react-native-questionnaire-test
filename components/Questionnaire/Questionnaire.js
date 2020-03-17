@@ -51,6 +51,11 @@ export class Questionnaire extends Component {
     // this.setState({ [name]: value });
   }
 
+  // Handle Button Options
+  handleButtonChange = answer => {
+    console.log(answer);
+  }
+
 
   render() {
     const { step } = this.state;
@@ -71,7 +76,7 @@ export class Questionnaire extends Component {
         CurrentQuestion = (
           <Relapsed
             values={values}
-            fieldChangeHandler={this.handleChange}
+            handleButtonOption={this.handleButtonChange}
             nextStep={this.nextQuestion}
             prevStep={this.prevQuestion} />
         );
